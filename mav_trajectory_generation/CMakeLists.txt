@@ -28,13 +28,19 @@ cs_add_library(${PROJECT_NAME}
   src/segment.cpp
   src/timing.cpp
   src/trajectory.cpp
-  src/trajectory_sampling.cpp
+  # src/trajectory_sampling.cpp
   src/vertex.cpp
-  src/io.cpp
+  # src/io.cpp
   src/rpoly/rpoly_ak1.cpp
 )
 # Link against yaml-cpp.
 target_link_libraries(${PROJECT_NAME} ${YamlCpp_LIBRARIES})
+
+add_subdirectory(pybind11)
+
+pybind11_add_module(mav_traj_gen src/python.cpp)
+target_compile_features(mav_traj_gen PUBLIC cxx_std_17)
+target_link_libraries(mav_traj_gen PUBLIC ${PROJECT_NAME})
 
 ############
 # BINARIES #

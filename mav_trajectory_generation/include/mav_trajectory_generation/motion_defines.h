@@ -25,19 +25,31 @@
 
 namespace mav_trajectory_generation {
 
-namespace derivative_order {
-static constexpr int POSITION = 0;
-static constexpr int VELOCITY = 1;
-static constexpr int ACCELERATION = 2;
-static constexpr int JERK = 3;
-static constexpr int SNAP = 4;
+// namespace derivative_order {
+// static constexpr int POSITION = 0;
+// static constexpr int VELOCITY = 1;
+// static constexpr int ACCELERATION = 2;
+// static constexpr int JERK = 3;
+// static constexpr int SNAP = 4;
 
-static constexpr int ORIENTATION = 0;
-static constexpr int ANGULAR_VELOCITY = 1;
-static constexpr int ANGULAR_ACCELERATION = 2;
+// static constexpr int ORIENTATION = 0;
+// static constexpr int ANGULAR_VELOCITY = 1;
+// static constexpr int ANGULAR_ACCELERATION = 2;
 
-static constexpr int INVALID = -1;
-}
+// static constexpr int INVALID = -1;
+// }  // namespace derivative_order
+
+enum derivative_order {
+  POSITION = 0,
+  VELOCITY = 1,
+  ACCELERATION = 2,
+  JERK = 3,
+  SNAP = 4,
+  ORIENTATION = 0,
+  ANGULAR_VELOCITY = 1,
+  ANGULAR_ACCELERATION = 2,
+  INVALID = -1
+};
 
 std::string positionDerivativeToString(int derivative);
 int positionDerivativeToInt(const std::string& string);

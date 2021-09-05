@@ -34,7 +34,6 @@ std::string positionDerivativeToString(int derivative) {
 }
 
 int positionDerivativeToInt(const std::string& string) {
-  using namespace derivative_order;
   if (string == "position") {
     return POSITION;
   } else if (string == "velocity") {
@@ -62,7 +61,6 @@ std::string orintationDerivativeToString(int derivative) {
 }
 
 int orientationDerivativeToInt(const std::string& string) {
-  using namespace derivative_order;
   if (string == "orientation") {
     return ORIENTATION;
   } else if (string == "angular_velocity") {
