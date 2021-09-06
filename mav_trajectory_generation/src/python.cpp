@@ -10,7 +10,8 @@ PYBIND11_MODULE(mav_traj_gen, m) {
   m.doc() = "mav_trajectory_generation python bindings";
 
   py::class_<Segment>(m, "Segment")
-      .def("getPolynomialsRef", &Segment::getPolynomialsRef);
+      .def("getPolynomialsRef", &Segment::getPolynomialsRef)
+      .def("evaluate", &Segment::evaluate);
 
   py::class_<Polynomial>(m, "Polynomial")
       .def("getCoefficients", &Polynomial::getCoefficients);
