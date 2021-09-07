@@ -29,7 +29,9 @@ PYBIND11_MODULE(mav_traj_gen, m) {
 
   py::class_<NonlinearOptimizationParameters>(m,
                                               "NonlinearOptimizationParameters")
-      .def(py::init<>());
+      .def(py::init<>())
+      .def_readonly("time_penalty",
+                    &NonlinearOptimizationParameters::time_penalty);
 
   // TODO(laura) nontype template parameter, how to do?
   py::class_<PolynomialOptimizationNonLinear<10>>(
@@ -40,8 +42,10 @@ PYBIND11_MODULE(mav_traj_gen, m) {
       .def("optimize", &PolynomialOptimizationNonLinear<10>::optimize)
       .def("setupFromVertices",
            &PolynomialOptimizationNonLinear<10>::setupFromVertices)
-      .def("getTrajectory",
-           &PolynomialOptimizationNonLinear<10>::getTrajectory);
+      .def("getTrajectory", &PolynomialOptimizationNonLinear<10>::getTrajectory)
+      .def("getTotalCostWithSoftConstraints",
+           &PolynomialOptimizationNonLinear<
+               10>::getTotalCostWithSoftConstraints);
 
   py::enum_<derivative_order>(m, "derivative_order")
       .value("POSITION", POSITION)

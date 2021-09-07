@@ -1,5 +1,7 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.20)
 project(mav_trajectory_generation)
+
+add_subdirectory(nlopt)
 
 find_package(catkin_simple REQUIRED)
 catkin_simple(ALL_DEPS_REQUIRED)
@@ -40,7 +42,7 @@ add_subdirectory(pybind11)
 
 pybind11_add_module(mav_traj_gen src/python.cpp)
 target_compile_features(mav_traj_gen PUBLIC cxx_std_17)
-target_link_libraries(mav_traj_gen PUBLIC ${PROJECT_NAME})
+target_link_libraries(mav_traj_gen PUBLIC ${PROJECT_NAME} nlopt)
 
 ############
 # BINARIES #
