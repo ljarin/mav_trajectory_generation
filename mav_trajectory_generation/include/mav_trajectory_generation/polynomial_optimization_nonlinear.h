@@ -198,6 +198,8 @@ class PolynomialOptimizationNonLinear {
   // the same cost function as used in the full optimization. Returns the same
   // metrics regardless of time estimation method set.
   double getTotalCostWithSoftConstraints() const;
+  double getTotalCostWithoutSoftConstraints() const;
+  double getTotalTimeCost() const;
 
   void scaleSegmentTimesWithViolation();
 
