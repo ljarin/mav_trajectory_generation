@@ -18,7 +18,7 @@
  * permissions and limitations under the License.
  */
 #include "mav_trajectory_generation/polynomial.h"
-#include "mav_trajectory_generation/rpoly/rpoly_ak1.h"
+#include "mav_trajectory_generation/rpoly_ak1.h"
 
 #include <algorithm>
 #include <limits>

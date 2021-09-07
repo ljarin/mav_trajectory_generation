@@ -314,4 +314,4 @@ std::string returnValueToString(int return_value);
 
 #endif  // MAV_TRAJECTORY_GENERATION_POLYNOMIAL_OPTIMIZATION_NONLINEAR_H_
 
-#include "mav_trajectory_generation/impl/polynomial_optimization_nonlinear_impl.h"
+#include "mav_trajectory_generation/polynomial_optimization_nonlinear_impl.h"

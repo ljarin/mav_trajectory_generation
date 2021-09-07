@@ -44,7 +44,7 @@
 #include <cmath>
 #include <cfloat>
 
-#include "mav_trajectory_generation/rpoly/rpoly_ak1.h"
+#include "mav_trajectory_generation/rpoly_ak1.h"
 
 namespace mav_trajectory_generation {
 

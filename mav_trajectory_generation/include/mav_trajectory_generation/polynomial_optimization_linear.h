@@ -22,6 +22,7 @@
 #define MAV_TRAJECTORY_GENERATION_POLYNOMIAL_OPTIMIZATION_LINEAR_H_
 
 #include <glog/logging.h>
+
 #include <Eigen/Sparse>
 #include <tuple>
 
@@ -141,8 +142,8 @@ class PolynomialOptimization {
       std::vector<double>* candidates);
 
   // Template-free version of above:
-  static bool computeSegmentMaximumMagnitudeCandidates(int derivative,
-      const Segment& segment, double t_start, double t_stop,
+  static bool computeSegmentMaximumMagnitudeCandidates(
+      int derivative, const Segment& segment, double t_start, double t_stop,
       std::vector<double>* candidates);
 
   // Computes the candidates for the maximum magnitude of a single
@@ -305,6 +306,6 @@ struct Constraint {
 
 }  // namespace mav_trajectory_generation
 
-#include "mav_trajectory_generation/impl/polynomial_optimization_linear_impl.h"
+#include "mav_trajectory_generation/polynomial_optimization_linear_impl.h"
 
 #endif  // MAV_TRAJECTORY_GENERATION_POLYNOMIAL_OPTIMIZATION_LINEAR_H_
