@@ -30,7 +30,7 @@ PYBIND11_MODULE(mav_traj_gen, m) {
   py::class_<NonlinearOptimizationParameters>(m,
                                               "NonlinearOptimizationParameters")
       .def(py::init<>())
-      .def_readonly("time_penalty",
+      .def_readwrite("time_penalty",
                     &NonlinearOptimizationParameters::time_penalty);
 
   // TODO(laura) nontype template parameter, how to do?
