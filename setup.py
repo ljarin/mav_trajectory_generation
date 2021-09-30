@@ -13,6 +13,7 @@ class CMakeExtension(Extension):
         Extension.__init__(self, name, sources=[])
         self.sourcedir = os.path.abspath(sourcedir)
 
+
 class CMakeBuild(build_ext):
     def run(self):
         try:
@@ -48,10 +49,6 @@ class CMakeBuild(build_ext):
             '-DPYTHON_EXECUTABLE={}'.format(sys.executable),
             '-DEXAMPLE_VERSION_INFO={}'.format(self.distribution.get_version()),
             '-DCMAKE_BUILD_TYPE=' + build_type,
-            '-DBUILD_EXAMPLES=OFF',
-            '-DBUILD_TESTS=OFF',
-            '-DBUILD_SHARED_LIBS=OFF',
-            '-DCMAKE_POSITION_INDEPENDENT_CODE=ON',
         ]
 
         if not os.path.exists(self.build_temp):

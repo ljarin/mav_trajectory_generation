@@ -2,3 +2,7 @@
 **.vscode/
 **pybind11/
 **nlopt/
+build/
+*.a
+*.so
+*.mexa64

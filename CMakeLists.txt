@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 project(mav_trajectory_generation)
 
 
-find_package(catkin REQUIRED COMPONENTS glog_catkin cmake_modules mav_msgs)
+find_package(catkin REQUIRED COMPONENTS glog_catkin cmake_modules mav_msgs pybind11_catkin)
 catkin_package(
   INCLUDE_DIRS include/
   LIBRARIES ${PROJECT_NAME} nlopt
@@ -27,8 +27,6 @@ add_library(${PROJECT_NAME}
 add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 target_include_directories(${PROJECT_NAME} PUBLIC include ${catkin_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
-
-add_subdirectory(pybind11)
 
 pybind11_add_module(mav_traj_gen src/python.cpp)
 target_compile_features(mav_traj_gen PUBLIC cxx_std_17)
