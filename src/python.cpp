@@ -45,7 +45,10 @@ PYBIND11_MODULE(mav_traj_gen, m) {
       .def("getTrajectory", &PolynomialOptimizationNonLinear<10>::getTrajectory)
       .def("getTotalCostWithSoftConstraints",
            &PolynomialOptimizationNonLinear<
-               10>::getTotalCostWithSoftConstraints);
+               10>::getTotalCostWithSoftConstraints)
+      .def("getTotalCostWithoutSoftConstraints",
+           &PolynomialOptimizationNonLinear<
+               10>::getTotalCostWithoutSoftConstraints);
 
   py::enum_<derivative_order>(m, "derivative_order")
       .value("POSITION", POSITION)
