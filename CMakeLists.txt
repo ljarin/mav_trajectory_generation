@@ -1,13 +1,16 @@
 cmake_minimum_required(VERSION 3.20)
 project(mav_trajectory_generation)
 
+add_subdirectory(nlopt)
+set(nlopt_INCLUDE_DIRS ${PROJECT_BINARY_DIR}/nlopt/ ${CMAKE_SOURCE_DIR}/nlopt/src/api)
+set(nlopt_LIBRARIES nlopt)
 
 find_package(catkin REQUIRED COMPONENTS glog_catkin cmake_modules mav_msgs pybind11_catkin)
 catkin_package(
   INCLUDE_DIRS include/
-  LIBRARIES ${PROJECT_NAME} nlopt
-  CATKIN_DEPENDS cmake_modules mav_msgs glog_catkin pybind11_catkin)
-add_subdirectory(nlopt)
+  LIBRARIES ${PROJECT_NAME}
+  CATKIN_DEPENDS cmake_modules mav_msgs glog_catkin pybind11_catkin
+  DEPENDS nlopt)
 
 #############
 # LIBRARIES #
